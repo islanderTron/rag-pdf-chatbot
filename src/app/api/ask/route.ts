@@ -8,18 +8,9 @@
 import { NextRequest, NextResponse } from "next/server";
 import { ask } from "@/lib/rag";
 import { getVectorStore } from "@/lib/store";
-import { getActiveProvider } from "@/lib/providerState";
 
 export async function POST(req: NextRequest) {
   try {
-    const provider = getActiveProvider();
-    const anthropicKey = process.env.ANTHROPIC_API_KEY ?? "";
-    const openaiKey = process.env.OPENAI_API_KEY ?? "";
-    console.log("[/api/ask] provider=%s anthropicKey=%s openaiKey=%s", provider,
-      anthropicKey ? `${anthropicKey.slice(0, 14)}...(len=${anthropicKey.length})` : "MISSING",
-      openaiKey ? `${openaiKey.slice(0, 10)}...(len=${openaiKey.length})` : "MISSING",
-    );
-
     const { question } = (await req.json()) as { question?: string };
 
     if (!question?.trim()) {
