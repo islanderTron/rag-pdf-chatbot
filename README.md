@@ -57,7 +57,7 @@ Open [http://localhost:3000](http://localhost:3000) once the server is up.
 ### 1. Install dependencies
 
 ```bash
-bum install
+bun install
 ```
 
 ### 2. Configure your provider
@@ -86,7 +86,7 @@ ollama pull nomic-embed-text
 ### 4. Start the dev server
 
 ```bash
-bum run dev
+bun run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000).
